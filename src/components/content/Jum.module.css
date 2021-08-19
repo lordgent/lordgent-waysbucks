@@ -1,0 +1,51 @@
+.jumcontent{
+
+    height: 400px;
+    background-color: rgb(226, 0, 0);
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+.jumtitle{
+    color: white;
+    font-family: arial;
+    font-style: italic;
+}
+.prom{
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.spn{
+    color: white;
+    width: 60%;
+}
+
+@media only screen and (max-width: 600px) {
+    .jumcontent{
+        padding: 16px;
+        height: 220px;
+    }
+
+    .jumtitle{
+        font-size: 20px;
+        color: white;
+        font-family: arial;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    
+    .prom{
+        color: white;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .spn{
+        color: white;
+        width: 80%;
+    }
+
+}
