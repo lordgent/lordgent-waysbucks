@@ -24,15 +24,11 @@ flx{
 
 .logo{
     font-size: 20px;
-    
-    color: black;
+   color: black;
+   margin-left: 20px;
 }
 
-.nvlogo{
-background-color: red;
-padding: 10px;
-border-radius: 30px;
-}
+
 @media only screen and (max-width: 600px) {
     
     .nv{

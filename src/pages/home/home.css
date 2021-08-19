@@ -9,3 +9,12 @@
 .contcard{
     margin-top: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+    .lets{
+        font-size: 25px;
+    
+    }
+}
+
+

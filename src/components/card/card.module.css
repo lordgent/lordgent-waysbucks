@@ -25,6 +25,10 @@
     color: white;
     background-color: rgb(2, 95, 2);
 }
+.crd{
+    width: 18rem;
+    margin-bottom: 10px;
+}
 @keyframes loading{
     0%{
         transform: rotate(-90deg);
@@ -32,4 +36,27 @@
     100%{
         transform: rotate(90deg);
     }
+     }
+
+
+     @media only screen and (max-width: 600px) {
+
+        .cardcol{
+            width: 40rem;
+        }
+        .cardcol img{
+
+            height: 100%;
+            width: 100%;
+        }
+
+        .titl{
+            font-size: 10px;
+          }
+          .price{
+              font-size: 10px;
+          }
+          .crd{
+              width: 100%;
+          }
      }

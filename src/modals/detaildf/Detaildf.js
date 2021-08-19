@@ -28,7 +28,7 @@ function Detaildf({ match }) {
     return (
         <>
           
-          <Modal.Dialog>
+          <Modal.Dialog style={{transition: '7s'}}>
 
             <Modal.Body>
             <Container>

@@ -43,14 +43,14 @@ useEffect( () => {
         
         {product.map((data,idx) => 
 
-        <Col md={4} className={style.cardcol}>
+        <Col md={4} xs={6} className={style.cardcol}>
             <center>
-            <Card style={{ width: '14rem'}} key={idx} className="mb-3">
-                <Card.Img variant="top" src={data.imgs} alt="datacofee" />
+            <Card key={idx} className={style.crd}>
+                <img src={data.imgs} alt="datacofee" />
                 <Card.Body>
-                    <Card.Title>{data.item}</Card.Title>
-                    <Card.Text>
-                        {data.price}
+                    <Card.Title className={style.titl}>{data.item}</Card.Title>
+                    <Card.Text className={style.price}>
+                        Rp {data.price}
                     </Card.Text>
                  
                     <Link to={`detaildf/${data.id} `} className={style.dt} >Detail</Link>
