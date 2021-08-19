@@ -1,19 +1,33 @@
 import React from 'react'
 import Jum from './Jum.module.css' 
-
-
+import {Container, Row, Col} from 'react-bootstrap'
+import imagess from '../../image/1.jpg'
 const Jumtainer = (props) => {
 
 
     return (
         <>
           <div className={Jum.jumcontent}>
-                <h1 className={Jum.jumtitle}>{props.title}</h1>
+              <Container>
 
-                <p className={Jum.prom}>{props.promo}</p>
-                <p className={Jum.spn}>
-                    {props.spn}
-                </p>
+                <Row>
+                    <Col md={6}>
+
+                    <h1 className={Jum.jumtitle}>{props.title}</h1>
+
+                    <p className={Jum.prom}>{props.promo}</p>
+                    <p className={Jum.spn}>
+                        {props.spn}
+                    </p>
+
+                    </Col>
+                    <Col md={6}>
+                    <img src={imagess} alt="backcaffee" className={Jum.imgs} />
+                    </Col>
+                </Row>
+
+              </Container>
+                
           </div>      
         </>
     )
