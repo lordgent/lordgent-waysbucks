@@ -3,7 +3,6 @@ import {Container,Row} from 'react-bootstrap'
 import Jumtainer from '../../components/content/Jumtainer'
 import './home.css'
 import Carddata from '../../components/card/Carddata'
-
 function Homepage() {
 
 
@@ -19,7 +18,7 @@ function Homepage() {
                 Let's Order
             </h1>
           </Container>
-
+            
           <Container className="cont">
 
           <Row className="contcard">

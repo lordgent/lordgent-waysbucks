@@ -1,9 +1,14 @@
 import React,{useState,useEffect} from 'react'
-import {Container , Row, Col} from 'react-bootstrap'
+import {Container , Row, Col, Modal,} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import styledt from './detail.module.css'
 
-function Detailpage({ match }) {
-    const id = match.params.id
+function Detaildf({ match }) {
+
+    const id = match.params.id;
+
     const [detailproduct,setDetailproduct] = useState([]);
+    
     useEffect(() => {
 
         const detail = fetch(`https://my-json-server.typicode.com/lordgent/fakedata/product/${id}`);
@@ -12,7 +17,7 @@ function Detailpage({ match }) {
             })
             .then(result => {
                 setDetailproduct(result)
-                console.log(result);
+             
             } )
             .catch(err => {
                 console.error(err + ' errrorrrrrr');
@@ -22,14 +27,18 @@ function Detailpage({ match }) {
 
     return (
         <>
-          <Container>
+          
+          <Modal.Dialog>
+
+            <Modal.Body>
+            <Container>
             <Row>
 
                 <Col md={6}>
-                    <img src={detailproduct.imgs} alt="detail" width="320rem" />
+                    <img src={detailproduct.imgs} alt="detail" width="160rem" />
                 </Col>
                 <Col md={6}>
-                    <h2>{detailproduct.item}</h2>
+                    <p className={styledt.item}>{detailproduct.item}</p>
                     <p>Rp.{detailproduct.price}</p>
                     <p>Toping</p>
                 
@@ -41,8 +50,16 @@ function Detailpage({ match }) {
                 
             </Row>
           </Container>
+            </Modal.Body>
+
+            <Modal.Footer>
+             <Link to="/" className={styledt.cls}>Close</Link>
+                
+            </Modal.Footer>
+        </Modal.Dialog>
+
         </>
     )
 }
 
-export default Detailpage
+export default Detaildf;

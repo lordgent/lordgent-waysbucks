@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Homepage from './pages/home/Homepage';
 import Navbarcomp from './components/navbar/Navbarcomp';
-import Detailpage from './pages/detaildefault/Detailpage';
+import Detaildf from './modals/detaildf/Detaildf';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Navbarcomp/>
         <Switch>
           <Route path="/" exact component={Homepage} />
-          <Route path="/detaildf/:id" exact component={Detailpage} />
+          <Route path="/detaildf/:id" exact component={Detaildf} />
 
         </Switch>
         

@@ -53,7 +53,7 @@ useEffect( () => {
                         {data.price}
                     </Card.Text>
                  
-                    <Link to={`detaildf/${data.id} `} >Detail</Link>
+                    <Link to={`detaildf/${data.id} `} className={style.dt} >Detail</Link>
                 </Card.Body>
             </Card>
                 
