@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {Container} from 'react-bootstrap'
+// import {Container} from 'react-bootstrap'
 
 function Detailpage({ match }) {
     const id = match.params.id
@@ -22,13 +22,7 @@ function Detailpage({ match }) {
 
     return (
         <>
-            <Container>
-                { detailproduct.map( (result,idx) => 
-                    <p key={idx}>
-                        {result.title}
-                    </p>   
-                    ) }
-           </Container>
+          
         </>
     )
 }

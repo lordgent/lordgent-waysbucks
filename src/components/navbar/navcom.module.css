@@ -21,3 +21,40 @@ flx{
 .nv{
     display: flex;
 }
+
+
+@media only screen and (max-width: 600px) {
+    
+    .nv{
+        display: flex;
+   
+        padding: 10px;
+      
+    }
+    
+
+    .login{
+        padding: 2px 5px 2px 5px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(219, 0, 0);
+        border: 1px solid rgb(219, 0, 0);
+        border-radius: 3px;
+        margin-right: 10px;
+        text-decoration: none;
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+    .reg{
+        padding: 2px 5px 2px 5px;
+        background-color: rgb(219, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(219, 0, 0);
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 12px;
+    }    
+
+
+
+
+}
