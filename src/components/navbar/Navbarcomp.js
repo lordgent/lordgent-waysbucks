@@ -7,11 +7,12 @@ function Navbarcomp() {
     return (
         <>
           
-                <Navbar expand="lg" variant="light" bg="" className={style.flx}>
+                <Navbar expand="lg" variant="" bg="" className={style.flx}>
                     <Container>
-                    <Navbar.Brand href="#">
-                        <GrJava/> 
-                    </Navbar.Brand>
+                   <Link className={style.nvlogo}>
+                        <GrJava className={style.logo} /> 
+                   </Link>
+                  
                    <Nav className={style.nv}>
 
                    <Link className={style.login}> Login </Link>

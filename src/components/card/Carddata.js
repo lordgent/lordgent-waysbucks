@@ -1,10 +1,14 @@
 import React,{useState,useEffect} from 'react'
-import {Card,Button,Col} from 'react-bootstrap'
+import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
+import {Link} from 'react-router-dom'
+import { ImMug } from "react-icons/im";
+
 
 function Carddata() {
 
     const [product,setProduct] = useState([])
+    const [load,setLoad] = useState(true)
 useEffect( () => {
 
     const data = fetch('https://my-json-server.typicode.com/lordgent/fakedata/product');
@@ -13,13 +17,26 @@ useEffect( () => {
         return response.json()
     } )
         .then(result => {
-            setProduct(result)
+            setProduct(result)  
+            setLoad(false)
           
         } )
     .catch(err => {
         console.log(err);
     })
 } ) 
+
+    if(load) {
+        return (
+            <div className={style.load}>
+                <p>Please Wait.. <ImMug className={style.iconload}/></p>
+                
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        )
+    }
 
     return (
         <>
@@ -35,7 +52,8 @@ useEffect( () => {
                     <Card.Text>
                         {data.price}
                     </Card.Text>
-                    <Button variant="primary">Detail</Button>
+                 
+                    <Link to={`detaildf/${data.id} `} >Detail</Link>
                 </Card.Body>
             </Card>
                 

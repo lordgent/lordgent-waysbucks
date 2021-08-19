@@ -22,7 +22,17 @@ flx{
     display: flex;
 }
 
+.logo{
+    font-size: 20px;
+    
+    color: black;
+}
 
+.nvlogo{
+background-color: red;
+padding: 10px;
+border-radius: 30px;
+}
 @media only screen and (max-width: 600px) {
     
     .nv{
@@ -54,7 +64,5 @@ flx{
         font-size: 12px;
     }    
 
-
-
-
+   
 }

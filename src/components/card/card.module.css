@@ -1,0 +1,22 @@
+.load{
+    background-color: rgb(228, 1, 1);
+    width: 100%;
+    padding: 4px;
+    height: 30px;
+    
+}
+.load p{
+    color: white;
+    text-align: center;
+}
+.iconload{
+    animation: loading infinite 1s ease;
+}
+@keyframes loading{
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+     }
