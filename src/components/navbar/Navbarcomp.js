@@ -1,10 +1,21 @@
-import React from 'react'
-import {Navbar, Container, Nav} from 'react-bootstrap'
+import React , { useState } from 'react'
+import {Navbar, Container, Nav, Button} from 'react-bootstrap'
 import style from './navcom.module.css'
 import {Link} from 'react-router-dom'
 import logo from '../../image/icons.png'
+import Loginuser from '../../modals/login/Loginuser'
+
 
 function Navbarcomp() {
+
+    const [modal,setModal] = useState(false)
+
+    function clickModal() {
+        setModal(true)
+    }
+    function exitmodal() {
+        setModal(false)
+    }
     return (
         <>
           
@@ -16,14 +27,15 @@ function Navbarcomp() {
                   
                    <Nav className={style.nv}>
 
-                   <Link className={style.login}> Login </Link>
+                 
                     <Link className={style.reg}>Register</Link>
+                    <Button className={style.login} onClick={clickModal} >Login</Button>
                    </Nav>
                     
 
                     </Container>
                 </Navbar>
-
+                <Loginuser show={modal} onClick={exitmodal} />
          
         </>
     )

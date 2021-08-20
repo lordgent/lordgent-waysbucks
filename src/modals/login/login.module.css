@@ -1,0 +1,26 @@
+.form{
+    padding: 20px;
+}
+.input{
+    border: 2px solid red;
+}
+.btnlogin{
+    width: 100%;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+}
+.btnlogin:hover{
+    width: 100%;
+    background-color: rgb(206, 0, 0);
+    color: white;
+    border: 1px solid rgb(177, 0, 0);
+}
+.til{
+    color: red;
+    margin-left: 30px;
+    font-weight: 600;
+}
+.modal{
+    padding: 10px;
+}
