@@ -35,7 +35,7 @@ function Detaildf({ match }) {
             <Row>
 
                 <Col md={6}>
-                    <img src={detailproduct.imgs} alt="detail" width="160rem" />
+                    <img src={"/assets/images/"+detailproduct.imgs} alt={detailproduct.imgs} width="130rem" />
                 </Col>
                 <Col md={6}>
                     <p className={styledt.item}>{detailproduct.item}</p>

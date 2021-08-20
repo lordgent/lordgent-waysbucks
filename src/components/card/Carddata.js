@@ -3,7 +3,7 @@ import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
 import {Link} from 'react-router-dom'
 import { ImMug } from "react-icons/im";
-
+import NumberFormat from '../frmt';
 
 function Carddata() {
 
@@ -43,14 +43,14 @@ useEffect( () => {
         
         {product.map((data,idx) => 
 
-        <Col md={4} xs={6} className={style.cardcol}>
+        <Col md={3} xs={6} className={style.cardcol}>
             <center>
             <Card key={idx} className={style.crd}>
-                <img src={data.imgs} alt="datacofee" />
+                <img src={"assets/images/"+data.imgs} alt={data.imgs} />
                 <Card.Body>
                     <Card.Title className={style.titl}>{data.item}</Card.Title>
                     <Card.Text className={style.price}>
-                        Rp {data.price}
+                        Rp {NumberFormat(data.price) }
                     </Card.Text>
                  
                     <Link to={`detaildf/${data.id} `} className={style.dt} >Detail</Link>

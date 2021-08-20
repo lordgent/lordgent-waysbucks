@@ -29,8 +29,23 @@
 .crd{
     width: 18rem;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 5px;
+    background-color: rgb(255, 209, 209);
+  
 }
+.titl{
+    color: red;
+    font-weight: 600;
+}
+.price{
+    color: rgb(59, 59, 59);
+    font-family: arial;
+    
+}
+.crd{
+    width: 17rem;
+}
+
 @keyframes loading{
     0%{
         transform: rotate(-90deg);

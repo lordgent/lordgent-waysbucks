@@ -1,8 +1,9 @@
 import React from 'react'
 import {Navbar, Container, Nav} from 'react-bootstrap'
-import { GrJava } from "react-icons/gr";
 import style from './navcom.module.css'
 import {Link} from 'react-router-dom'
+import logo from '../../image/icons.png'
+
 function Navbarcomp() {
     return (
         <>
@@ -10,7 +11,7 @@ function Navbarcomp() {
                 <Navbar expand="lg" variant="" bg="" className={style.flx}>
                     <Container>
                    <Link className={style.nvlogo}>
-                        <GrJava className={style.logo} /> 
+                        <img src={logo} className={style.logo} alt="iconlogo" height="35" /> 
                    </Link>
                   
                    <Nav className={style.nv}>

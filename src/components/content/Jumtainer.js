@@ -1,7 +1,7 @@
 import React from 'react'
 import Jum from './Jum.module.css' 
 import {Container, Row, Col} from 'react-bootstrap'
-import imagess from '../../image/1.jpg'
+import imagess from '../../image/3.png'
 const Jumtainer = (props) => {
 
 
