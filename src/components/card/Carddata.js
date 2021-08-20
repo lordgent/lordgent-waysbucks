@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import { ImMug } from "react-icons/im";
 import NumberFormat from '../frmt';
 
@@ -19,12 +19,12 @@ useEffect( () => {
         .then(result => {
             setProduct(result)  
             setLoad(false)
-          
+            console.log(result);
         } )
     .catch(err => {
         console.log(err);
     })
-} ) 
+},[] ) 
 
     if(load) {
         return (
@@ -33,7 +33,7 @@ useEffect( () => {
                 
                 <br/>
                 <br/>
-                <br/>
+                
             </div>
         )
     }
@@ -41,25 +41,24 @@ useEffect( () => {
     return (
         <>
         
-        {product.map((data,idx) => 
-
-        <Col md={3} xs={6} className={style.cardcol}>
-            <center>
-            <Card key={idx} className={style.crd}>
-                <img src={"assets/images/"+data.imgs} alt={data.imgs} />
-                <Card.Body>
-                    <Card.Title className={style.titl}>{data.item}</Card.Title>
-                    <Card.Text className={style.price}>
-                        Rp {NumberFormat(data.price) }
-                    </Card.Text>
-                 
-                    <Link to={`detaildf/${data.id} `} className={style.dt} >Detail</Link>
-                </Card.Body>
-            </Card>
+            {product.map( (rows,idx) => 
+        <Col md={3} key={idx}>
                 
-        </center>
-        </Col>
-        )}
+
+                    <Card   className={style.crd}>
+                    <Card.Img variant="top" src={"assets/images/"+rows.imgs} />
+                    <Card.Body>
+                        <Card.Title>{rows.item}</Card.Title>
+                        <Card.Text>
+                          Rp. { NumberFormat(rows.price)  }
+                        </Card.Text>
+                        
+                    </Card.Body>
+                    </Card>
+                                    
+                                    
+                                    </Col>
+                                    ) }
            
         </>
     )

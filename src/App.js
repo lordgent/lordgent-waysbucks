@@ -2,8 +2,9 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Homepage from './pages/home/Homepage';
-import Navbarcomp from './components/navbar/Navbarcomp';
 import Detaildf from './modals/detaildf/Detaildf';
+import Clientpages from './pages/client/homeclient/Clientpages';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -11,16 +12,17 @@ function App() {
     <>
     
         <BrowserRouter>
-          <Navbarcomp/>
+   
         <Switch>
           <Route path="/" exact component={Homepage} />
           <Route path="/detaildf/:id" exact component={Detaildf} />
+          <PrivateRoute path="/client" exact component={Clientpages} />
+          {/* <Route path="/client" exact component={Clientpages} /> */}
 
         </Switch>
         
         </BrowserRouter>
 
-    
     </>
     
   );

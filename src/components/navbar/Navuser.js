@@ -1,23 +1,27 @@
 import React from 'react'
-import {Navbar,Container,Nav} from 'react-bootstrap'
+import {Navbar,Container} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import { IoIosCart } from "react-icons/io";
+import logo from '../../image/icons.png'
+import style from './Navuser.module.css'
+
 
 function Navuser() {
     return (
         <>
             
-            <Navbar expand="lg" variant="" bg="" className={style.flx}>
+            <Navbar expand="lg" variant="" bg="">
                     <Container>
-                   <Link className={style.nvlogo}>
-                        <GrJava className={style.logo} /> 
-                   </Link>
-                  
-                   <Nav className={style.nv}>
+                            <Link to="/client">
+                                <img  src={logo} alt="logowaysbucks" height="40" />
+                            </Link>
 
-                   <Link className={style.login}> Login </Link>
-                    <Link className={style.reg}>Register</Link>
-                   </Nav>
-                    
+                            <div  className="d-flex">
+                                <Link><IoIosCart className={style.logo} /></Link>
+                                <Link to="profile">
+                                    <img  src={logo} alt="profileuser" className={style.profil} height="30" />
+                                </Link>
+                            </div>
 
                     </Container>
                 </Navbar>

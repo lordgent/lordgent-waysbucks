@@ -3,11 +3,15 @@ import {Container,Row} from 'react-bootstrap'
 import Jumtainer from '../../components/content/Jumtainer'
 import './home.css'
 import Carddata from '../../components/card/Carddata'
+import Navbarcomp from '../../components/navbar/Navbarcomp'
+
 function Homepage() {
 
 
     return (
         <>
+        <Navbarcomp/>
+
           <Container>
             <Jumtainer title="WaysBucks" 
             promo="This are Changing, but we're still here for you" 
