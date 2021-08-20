@@ -10,7 +10,29 @@ flx{
     margin-right: 10px;
     text-decoration: none;
 }
+.login:hover{
+    padding: 3px 8px 3px 8px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(219, 0, 0);
+    border: 1px solid rgb(219, 0, 0);
+    border-radius: 3px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+
+
 .reg{
+    padding: 3px 8px 3px 8px;
+    background-color: rgb(219, 0, 0);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(219, 0, 0);
+    border-radius: 3px;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.reg:hover{
     padding: 3px 8px 3px 8px;
     background-color: rgb(219, 0, 0);
     color: rgb(255, 255, 255);
@@ -27,6 +49,9 @@ flx{
    color: black;
    margin-left: 20px;
 }
+.toogle{
+    display: none;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -40,25 +65,17 @@ flx{
     
 
     .login{
-        padding: 2px 5px 2px 5px;
-        background-color: rgb(255, 255, 255);
-        color: rgb(219, 0, 0);
-        border: 1px solid rgb(219, 0, 0);
-        border-radius: 3px;
-        margin-right: 10px;
-        text-decoration: none;
-        font-size: 12px;
-        margin-bottom: 2px;
+       display: none;
     }
     .reg{
-        padding: 2px 5px 2px 5px;
-        background-color: rgb(219, 0, 0);
-        color: rgb(255, 255, 255);
-        border: 1px solid rgb(219, 0, 0);
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 12px;
+       display: none;
     }    
 
-   
+    .toogle{
+        display: inline-block;
+        font-size: 30px;
+        color: rgb(219, 0, 0);
+        font-weight: 600;
+    }
+    
 }

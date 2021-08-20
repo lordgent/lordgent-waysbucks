@@ -1,20 +1,28 @@
 import React , { useState } from 'react'
-import {Navbar, Container, Nav, Button} from 'react-bootstrap'
+import {Navbar, Container, Nav} from 'react-bootstrap'
 import style from './navcom.module.css'
 import {Link} from 'react-router-dom'
 import logo from '../../image/icons.png'
 import Loginuser from '../../modals/login/Loginuser'
+import { MdSort } from "react-icons/md";
 
 
 function Navbarcomp() {
 
     const [modal,setModal] = useState(false)
+    const [tognav, setTognav] = useState(false)
 
     function clickModal() {
         setModal(true)
     }
     function exitmodal() {
         setModal(false)
+    }
+
+    const tooglenav = () => {
+
+        setTognav(true)
+        alert('test')
     }
     return (
         <>
@@ -27,15 +35,18 @@ function Navbarcomp() {
                   
                    <Nav className={style.nv}>
 
-                 
+                    <MdSort className={style.toogle} onClick={tooglenav} />
                     <Link className={style.reg}>Register</Link>
-                    <Button className={style.login} onClick={clickModal} >Login</Button>
+                    <Link className={style.login} onClick={clickModal} >Login</Link>
                    </Nav>
                     
 
                     </Container>
                 </Navbar>
                 <Loginuser show={modal} onClick={exitmodal} />
+                <div show={tognav}>
+             
+                </div>
          
         </>
     )
