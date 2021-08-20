@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import {Card, Col,Button} from 'react-bootstrap'
 import style from './card.module.css'
-// import {Link} from 'react-router-dom'
 import { ImMug } from "react-icons/im";
 import NumberFormat from '../NumberFormat';
+import {Link} from 'react-router-dom'
 
-function Carddata() {
+function Datauser() {
 
     const [product,setProduct] = useState([])
     const [load,setLoad] = useState(true)
@@ -52,7 +52,10 @@ useEffect( () => {
                         <Card.Text>
                           Rp. { NumberFormat(rows.price)  }
                         </Card.Text>
-            
+                        <center>
+
+                        <Link className={style.order} to={"/client/detailc/"+rows.id}>Order</Link>
+                        </center>
                     </Card.Body>
                     </Card>
                                     
@@ -64,4 +67,4 @@ useEffect( () => {
     )
 }
 
-export default Carddata
+export default Datauser

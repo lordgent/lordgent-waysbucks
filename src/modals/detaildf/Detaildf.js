@@ -21,8 +21,6 @@ function Detaildf({ match }) {
                 setDetailproduct(result) 
                 console.log(result);
               
-
-              
             } )
             .catch(err => {
                 console.error(err + ' errrorrrrrr');

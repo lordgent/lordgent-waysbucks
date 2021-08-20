@@ -2,7 +2,8 @@ import React from 'react'
 import Navuser from '../../../components/navbar/Navuser'
 import Jumtainer from '../../../components/content/Jumtainer'
 import {Container,Row} from 'react-bootstrap'
-import Carddata from '../../../components/card/Carddata'
+import Datauser from '../../../components/card/Datauser'
+import './style.css'
 
 function Clientpages() {
     return (
@@ -19,11 +20,14 @@ function Clientpages() {
             />
 
             </Container>
-                <h1>Lets Order</h1>
+                <h1 className="lets">Lets Order</h1>
                 <Container>
 
                 <Row>
-                        <Carddata/>
+         
+
+                        <Datauser/>
+                        
 
                 </Row>
                 </Container>

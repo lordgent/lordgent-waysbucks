@@ -5,6 +5,7 @@ import Homepage from './pages/home/Homepage';
 import Detaildf from './modals/detaildf/Detaildf';
 import Clientpages from './pages/client/homeclient/Clientpages';
 import PrivateRoute from './PrivateRoute';
+import DetailProduct from './pages/client/detailpage/DetailProduct'
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Homepage} />
           <Route path="/detaildf/:id" exact component={Detaildf} />
+          <Route path="/client/detailc/:id" exact component={DetailProduct} />
           <PrivateRoute path="/client" exact component={Clientpages} />
+
           {/* <Route path="/client" exact component={Clientpages} /> */}
 
         </Switch>

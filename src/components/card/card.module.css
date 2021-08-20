@@ -46,6 +46,18 @@
     width: 17rem;
 }
 
+.order{
+    color: white;
+    width: 100%;
+    background-color: red;
+    padding: 3px 10px 3px 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+.order:hover{
+    color: white;
+    text-decoration: none;
+}
 @keyframes loading{
     0%{
         transform: rotate(-90deg);

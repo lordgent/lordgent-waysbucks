@@ -5,11 +5,12 @@ import {Link} from 'react-router-dom'
 import logo from '../../image/icons.png'
 import Loginuser from '../../modals/login/Loginuser'
 import { MdSort } from "react-icons/md";
-
+import Registeruser from '../../modals/register/Registeruser'
 
 function Navbarcomp() {
 
     const [modal,setModal] = useState(false)
+    const [togreg,setTogreg] = useState(false)
     const [tognav, setTognav] = useState(false)
 
     function clickModal() {
@@ -17,6 +18,14 @@ function Navbarcomp() {
     }
     function exitmodal() {
         setModal(false)
+    }
+
+
+    function clickreg() {
+        setTogreg(true)
+    }
+    function exitreg() {
+        setTogreg(false)
     }
 
     const tooglenav = () => {
@@ -36,7 +45,7 @@ function Navbarcomp() {
                    <Nav className={style.nv}>
 
                     <MdSort className={style.toogle} onClick={tooglenav} />
-                    <Link className={style.reg}>Register</Link>
+                    <Link className={style.reg} onClick={clickreg}>Register</Link>
                     <Link className={style.login} onClick={clickModal} >Login</Link>
                    </Nav>
                     
@@ -44,6 +53,7 @@ function Navbarcomp() {
                     </Container>
                 </Navbar>
                 <Loginuser show={modal} onClick={exitmodal} />
+                <Registeruser show={togreg} onClick={exitreg} />
                 <div show={tognav}>
              
                 </div>
