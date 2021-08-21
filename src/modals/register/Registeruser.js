@@ -1,54 +1,32 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {Modal,Button,Form,Container} from 'react-bootstrap'
 import stylereg from './register.module.css'
 
 function Registeruser(props) {
    
-
-const [register,setRegister] = useState([{
-    fullname: "",
-    email: "",
-    password: ""
-}])
-
-const handleInput = (e) => {
-
-setRegister({
-    ...register,
-    [e.target.name]: e.target.value,
-})
-
-
-}
-
-const handleReg = (e) => {
-    e.preventDefault()
-    localStorage.setItem('reg', register)
-}
-
     return (
         <>
             <Modal className={stylereg.modal} show={props.show}>
                 <Container> 
                     <h1 className={stylereg.til}>Register</h1>
-           <Form className={stylereg.form} onSubmit={handleReg}>
+           <Form className={stylereg.form} >
 
                 
            <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                <Form.Control type="text" onChange={handleInput} name="email" className={stylereg.input} placeholder="Input your Name" />
+                <Form.Control type="text"  name="email" className={stylereg.input} placeholder="Input your Name" />
 
             </Form.Group>
 
                  <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                 <Form.Control type="email" onChange={handleInput} name="email" className={stylereg.input} placeholder="Input your email" />
+                 <Form.Control type="email"  name="email" className={stylereg.input} placeholder="Input your email" />
 
                  </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
            
-                <Form.Control type="password" name="password" onChange={handleInput} className={stylereg.input} placeholder="Input your Strong Password" />
+                <Form.Control type="password" name="password" className={stylereg.input} placeholder="Input your Strong Password" />
 
             </Form.Group>
           

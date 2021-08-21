@@ -3,7 +3,7 @@ import {Container ,Button, Row, Card, Col, Form} from 'react-bootstrap'
 // import styledt from './detail.module.css'
 import Navuser from '../../../components/navbar/Navuser'
 import style from './detail.module.css'
-import NumberFormat from '../../../components/NumberFormat'
+// import NumberFormat from '../../../components/NumberFormat'
 
 function Detaildf({ match }) {
 
@@ -11,23 +11,7 @@ function Detaildf({ match }) {
  
     const [detailproduct,setDetailproduct] = useState([]);
     const [toping, setToping] = useState([])
-    const [total, setTotal] = useState(0)
-    const [valtop, setValtop] = useState(0)
-    const [cart, setCart] = useState([{
-        item: '',
-        price: ''
-    }])
-
-    const handleInputcart = (e) => {
-
-        setCart({
-            ...cart,
-            [e.target.name]: e.target.value,
-        })
-        
-        
-        }
-        
+    
 
     useEffect(() => {
 
@@ -44,23 +28,7 @@ function Detaildf({ match }) {
             })
     },[] )
 
-    const Totaltoping = () => {
-
-        setValtop( valtop + 1 )            
-    }
-
-    const handleCart = (e) => {
-
-        e.preventDefault()
-        setCart({
-            item: detailproduct.item,
-            price: 0,
-        })
-     
-        console.log(cart);
-       
-    }
-
+   
     return (
         <>
           <Navuser/>
@@ -68,10 +36,7 @@ function Detaildf({ match }) {
            <Container>
                 <Card className={style.carddet}>
                     <Container>
-
-
-                  
-            
+        
                 <Row>
 
                     <Col md={6}>
@@ -83,22 +48,21 @@ function Detaildf({ match }) {
                     <h5>{detailproduct.item}</h5>
                     <p>Rp.{detailproduct.price }</p>
                     <p className={style.tp}>Toping</p>
-                    <Form onSubmit={handleCart}>
+                    <Form>
 
-                        <input type="text" onChange={handleInputcart} name="item" value={detailproduct.item} />
                         <Row>
                                   
                             {toping.map((nm) =>
 
                                 <Col className={style.coltop} key={nm.idtoping} md={3} xs={2} >
-                                    <img src={"/assets/icon/"+nm.ics} height="35" onClick={Totaltoping} />
+                                    <img src={"/assets/icon/"+nm.ics} height="35" />
                                     <p className={style.name}>{nm.topingname}</p>
                                 </Col>
 
                                 )}
                         </Row>  
-                                <p>{valtop}</p>
-                                <h3> Total : Rp. { NumberFormat(total) }  </h3>
+                                <p></p>
+                                <h3> Total : Rp.  </h3>
                                     <Button type="submit" className={style.add}> Add </Button>
                         </Form>
                     </Col>
