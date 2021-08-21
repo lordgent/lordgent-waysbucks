@@ -4,7 +4,6 @@ import stylereg from './register.module.css'
 
 function Registeruser(props) {
    
-const obj = [];
 
 const [register,setRegister] = useState([{
     fullname: "",
@@ -24,8 +23,7 @@ setRegister({
 
 const handleReg = (e) => {
     e.preventDefault()
-    obj.push(register);
-    console.log(obj);
+    localStorage.setItem('reg', register)
 }
 
     return (

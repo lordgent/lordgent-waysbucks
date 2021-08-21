@@ -6,24 +6,19 @@ import Detaildf from './modals/detaildf/Detaildf';
 import Clientpages from './pages/client/homeclient/Clientpages';
 import DetailProduct from './pages/client/detailpage/DetailProduct'
 
-const isLogin =true;
-
 function Privateroute({ childd, ...rest }) {
+  
+  const isLogin = false;
       
   return (
 
-      <Route {...rest} render={ () => {
-        if(isLogin) {
-          return childd;
-        } else {
-          return <Redirect to="/" /> 
-        }
-      } } />
+      <Route {...rest} render={ (props) => 
+       isLogin ? <childd {...props}/> 
+       : <Redirect to="/" />
+       } />
 
   )
-}
-
-
+} 
 
 function App() {
 
@@ -34,16 +29,13 @@ function App() {
         <BrowserRouter>
    
         <Switch>
+
           <Route path="/" exact component={Homepage} />
           <Route path="/detaildf/:id" exact component={Detaildf} />
+         <Privateroute path='/client' exact component={Clientpages} />
           <Route path="/client/detailc/:id" exact component={DetailProduct} />
           {/* <Route path="/client" exact component={Clientpages} /> */}
 
-          <Privateroute path="/client">
-
-               <Clientpages/>
-
-          </Privateroute>
         </Switch>
          
         </BrowserRouter>
