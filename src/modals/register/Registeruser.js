@@ -1,19 +1,31 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Modal,Button,Form,Container} from 'react-bootstrap'
-// import user from '../../datajson/client.json'
 import stylereg from './register.module.css'
 
 function Registeruser(props) {
-    
-//     const [login,setLogin] = useState([])
+   
+const obj = [];
 
-//     const handleInput = (event) => {
+const [register,setRegister] = useState([{
+    fullname: "",
+    email: "",
+    password: ""
+}])
 
-//         setLogin(inputs => ({...inputs, [event.target.name]: event.target.value}));
-// }
+const handleInput = (e) => {
 
-const handleInput = () => {
+setRegister({
+    ...register,
+    [e.target.name]: e.target.value,
+})
 
+
+}
+
+const handleReg = (e) => {
+    e.preventDefault()
+    obj.push(register);
+    console.log(obj);
 }
 
     return (
@@ -21,7 +33,7 @@ const handleInput = () => {
             <Modal className={stylereg.modal} show={props.show}>
                 <Container> 
                     <h1 className={stylereg.til}>Register</h1>
-           <Form className={stylereg.form}>
+           <Form className={stylereg.form} onSubmit={handleReg}>
 
                 
            <Form.Group className="mb-3" controlId="formBasicEmail">

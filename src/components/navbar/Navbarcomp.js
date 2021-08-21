@@ -52,7 +52,7 @@ function Navbarcomp() {
 
                     </Container>
                 </Navbar>
-                <Loginuser show={modal} onClick={exitmodal} />
+                <Loginuser showw={modal} onClick={exitmodal} />
                 <Registeruser show={togreg} onClick={exitreg} />
                 <div show={tognav}>
              

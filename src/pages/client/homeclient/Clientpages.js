@@ -20,7 +20,7 @@ function Clientpages() {
             />
 
             </Container>
-                <h1 className="lets">Lets Order</h1>
+                <h1 className="lt">Lets Order</h1>
                 <Container>
 
                 <Row>

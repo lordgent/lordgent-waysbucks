@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {Card, Col,Button} from 'react-bootstrap'
+import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
 // import {Link} from 'react-router-dom'
 import { ImMug } from "react-icons/im";
@@ -19,7 +19,7 @@ useEffect( () => {
         .then(result => {
             setProduct(result)  
             setLoad(false)
-            console.log(result);
+           
         } )
     .catch(err => {
         console.log(err);

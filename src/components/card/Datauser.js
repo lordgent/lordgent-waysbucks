@@ -1,14 +1,15 @@
 import React,{useState,useEffect} from 'react'
-import {Card, Col,Button} from 'react-bootstrap'
+import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
 import { ImMug } from "react-icons/im";
 import NumberFormat from '../NumberFormat';
 import {Link} from 'react-router-dom'
 
-function Datauser() {
+const Datauser =() => {
 
     const [product,setProduct] = useState([])
     const [load,setLoad] = useState(true)
+    
 useEffect( () => {
 
     const data = fetch('https://my-json-server.typicode.com/lordgent/fakedata/product');
@@ -46,7 +47,7 @@ useEffect( () => {
                 
 
                     <Card   className={style.crd}>
-                    <Card.Img variant="top" src={"assets/images/"+rows.imgs} />
+                    <Card.Img variant="top" src={"assets/images/"+rows.imgs} alt="icoss" />
                     <Card.Body>
                         <Card.Title>{rows.item}</Card.Title>
                         <Card.Text>

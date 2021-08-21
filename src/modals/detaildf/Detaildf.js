@@ -5,13 +5,13 @@ import styledt from './detail.module.css'
 // import NumberFormat from '../../components/frmt'
 
 function Detaildf({ match }) {
-    const id = match.params.id;
 
     const [detailproduct,setDetailproduct] = useState([]);
 
+    const id = match.params.id
     
     useEffect(() => {
-        const id = match.params.id;
+     
         const detail = fetch(`https://my-json-server.typicode.com/lordgent/fakedata/product/${id}`);
             detail.then((response) => {
                 return response.json()
