@@ -23,6 +23,9 @@
 .tot{
     color: rgb(241, 47, 47);
 }
+.tpi{
+    width: 10px;
+}
 @media only screen and (max-width: 600px){
 
     .coltop{

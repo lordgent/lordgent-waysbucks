@@ -7,6 +7,7 @@ import Clientpages from './pages/client/homeclient/Clientpages';
 import DetailProduct from './pages/client/detailpage/DetailProduct'
 import PrivateRoute from './pages/PrivateRoute';
 import Profileuser from './pages/client/profilpage/Profileuser';
+import Cartuser from './pages/client/cart/Cartuser';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
          <PrivateRoute exact path='/client' component={Clientpages}/>
          <PrivateRoute exact path="/client/profile"  component={Profileuser} />
          <PrivateRoute exact path="/client/detailc/:id" component={DetailProduct} />
+         <PrivateRoute exact path="/client/mycart"  component={Cartuser}/>
         </Switch>
          
         </BrowserRouter>

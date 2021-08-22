@@ -28,10 +28,12 @@ function Loginuser(props) {
                         name: rows.name,
                         email: rows.email,
                         password: rows.password,
-                        cart: []
+
                     }
                 ]
                 localStorage.setItem('userlogin', JSON.stringify(ses))
+                const cartuser = []
+                let cart = localStorage.setItem('cart', JSON.stringify(cartuser))
                 
                    
             } else {

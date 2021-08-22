@@ -8,7 +8,7 @@ import {useHistory} from 'react-router-dom'
 
 
 function Navuser() {
-    const log = JSON.parse(localStorage.getItem('userlogin'))
+ 
     let redire = useHistory()
 
     const logout = () => {
@@ -17,6 +17,9 @@ function Navuser() {
         redire.push('/')
     }
 
+    const quy = JSON.parse(localStorage.getItem('cartuser'));
+  
+    
     return (
         <>
             
@@ -27,7 +30,11 @@ function Navuser() {
                             </Link>
 
                             <div  className="d-flex">
-                             <Link> <img src={cart} alt="cartlogo" height="27" className={style.cart} /> </Link>
+                             <Link to="/client/mycart"> 
+                  
+                                     <span className={style.qty}>1</span>
+                                  
+                              <img src={cart} alt="cartlogo" height="27" className={style.cart} /> </Link>
 
                             <NavDropdown className={style.drop} id="navbarScrollingDropdown">
        

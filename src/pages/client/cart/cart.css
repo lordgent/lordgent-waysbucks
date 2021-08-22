@@ -1,0 +1,20 @@
+.paycart{
+    margin-top: 40px;
+}
+
+.ti{
+    color: red;
+    font-weight: bold;
+}
+.forms{
+    padding: 0 40px 10px 40px;
+}
+
+.btnpay{
+    background-color: red;
+    width: 100%;
+    border: 1px solid red;
+}
+.inptcntrl{
+    border: 2px solid rgb(255, 42, 42);
+}

@@ -21,4 +21,4 @@ const User = [
         role: 'adm',
     },
 ]
-export default User
+export default User;

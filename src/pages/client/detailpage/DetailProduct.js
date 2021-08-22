@@ -1,16 +1,31 @@
 import React,{useState,useEffect} from 'react'
 import {Container ,Button, Row, Card, Col, Form} from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import Navuser from '../../../components/navbar/Navuser'
 import style from './detail.module.css'
 
 
 function Detaildf({ match }) {
 
+    const rndr = useHistory()
+
+    let us = JSON.parse(localStorage.getItem('userlogin'))
+
+
     const id = match.params.id    
  
     const [detailproduct,setDetailproduct] = useState([]);
     const [toping, setToping] = useState([])
     
+
+    // ============ cart state ============
+
+        const [cektop,setcektop] = useState('')
+        
+        
+        //============ ========================
+        
+        const [fixcart, setfixcart] = useState([])
 
     useEffect(() => {
 
@@ -25,7 +40,39 @@ function Detaildf({ match }) {
             .catch(err => {
                 console.error(err + ' errrorrrrrr');
             })
+
+
     },[] )
+
+
+
+    const addcart = (e) => {
+
+        e.preventDefault()
+        us.map((rows)=> {
+
+            const cartu = {
+                id: rows.id,
+                nameuser: rows.name,
+                nameproduct: detailproduct.item,
+                priceprd: detailproduct.price,
+                qty: 1,
+                top: cektop,
+                date: Date()
+            }
+           setfixcart([...fixcart, cartu])
+           
+           
+        })
+
+        localStorage.setItem('cartuser', JSON.stringify(fixcart))
+        
+
+
+    }
+   
+
+
 
    
     return (
@@ -39,7 +86,7 @@ function Detaildf({ match }) {
                 <Row>
 
                     <Col md={6}>
-                            <img src={"/assets/images/"+detailproduct.imgs} alt={detailproduct.imgs} height="400" />
+                     <img src={"/assets/images/"+detailproduct.imgs} alt={detailproduct.imgs} height="400" />
                            
                     </Col>
 
@@ -47,21 +94,24 @@ function Detaildf({ match }) {
                     <h5>{detailproduct.item}</h5>
                     <p>Rp.{ detailproduct.price }</p>
                     <p className={style.tp}>Toping</p>
-                    <Form>
-
+                    <Form onSubmit={addcart} >
+               
                         <Row>
                                   
-                            {toping.map((nm) =>
+                            {toping.map((nm,idx) =>
 
-                                <Col className={style.coltop} key={nm.idtoping} md={3} xs={2} >
+                                <Col className={style.coltop} key={idx} md={3} xs={2} >
                                     <img src={"/assets/icon/"+nm.ics} height="35" />
+                                    <input onChange={(e) => setcektop(e.target.value)} type="checkbox" value={nm.topingname} className={style.tpi} />
                                     <p className={style.name}>{nm.topingname}</p>
                                 </Col>
 
                                 )}
                         </Row>  
                                 <p></p>
-                                <h6 className={style.tot}> Total : Rp.  </h6>
+                                <h6 className={style.tot}> Total : Rp. {detailproduct.price} </h6>
+                                {/* <input type="hidden" value={detailproduct.item} /><br/>
+                                <input type="hidden" value={detailproduct.price} /> */}
                                     <Button type="submit" className={style.add}> Add </Button>
                         </Form>
                     </Col>
