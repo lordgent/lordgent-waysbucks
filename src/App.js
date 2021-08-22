@@ -6,23 +6,22 @@ import Detaildf from './modals/detaildf/Detaildf';
 import Clientpages from './pages/client/homeclient/Clientpages';
 import DetailProduct from './pages/client/detailpage/DetailProduct'
 import PrivateRoute from './pages/PrivateRoute';
-
+import Profileuser from './pages/client/profilpage/Profileuser';
 
 function App() {
 
   return (
 
     <>
-    
         <BrowserRouter>
    
         <Switch>
 
           <Route path="/" exact component={Homepage} />
           <Route path="/detaildf/:id" exact component={Detaildf} />
-          {/* <Route path="/client/detailc/:id" exact component={DetailProduct} /> */}
-          {/* <Route path="/client" exact component={Clientpages} /> */}
          <PrivateRoute exact path='/client' component={Clientpages}/>
+         <PrivateRoute exact path="/client/profile"  component={Profileuser} />
+         <PrivateRoute exact path="/client/detailc/:id" component={DetailProduct} />
         </Switch>
          
         </BrowserRouter>
@@ -31,7 +30,5 @@ function App() {
     
   );
 }
-
-
 
 export default App;

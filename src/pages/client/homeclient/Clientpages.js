@@ -7,14 +7,11 @@ import './style.css'
 
 function Clientpages() {
 
-    let userlog = JSON.parse(localStorage.getItem('userlogin'))
 
     return (
         <>
             <Navuser/>
-            {userlog.map((rows) => {
-                return <h1>Welcome {rows.name}</h1>
-            } )}
+         
 
             <Container>
             <Jumtainer 

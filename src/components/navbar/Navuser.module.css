@@ -1,4 +1,4 @@
-.logo{
+.cart{
 
     font-size: 30px;
     color: red;
@@ -7,4 +7,8 @@
 .profil{
     border: 1px solid red;
     border-radius: 50%;
+}
+.drop{
+    color: red!important;
+    background-color: red;
 }

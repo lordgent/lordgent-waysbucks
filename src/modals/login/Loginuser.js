@@ -24,12 +24,15 @@ function Loginuser(props) {
                 let ses = [
                     {   
                         id: rows.id,
+                        img: 'https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg',
                         name: rows.name,
                         email: rows.email,
-                        password: rows.password
+                        password: rows.password,
+                        cart: []
                     }
                 ]
                 localStorage.setItem('userlogin', JSON.stringify(ses))
+                
                    
             } else {
                return false

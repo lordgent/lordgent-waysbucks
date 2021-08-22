@@ -20,6 +20,9 @@
     margin-left: 20%;
     width: 50%;
 }
+.tot{
+    color: rgb(241, 47, 47);
+}
 @media only screen and (max-width: 600px){
 
     .coltop{

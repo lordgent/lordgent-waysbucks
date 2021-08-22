@@ -1,9 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import {Container ,Button, Row, Card, Col, Form} from 'react-bootstrap'
-// import styledt from './detail.module.css'
 import Navuser from '../../../components/navbar/Navuser'
 import style from './detail.module.css'
-// import NumberFormat from '../../../components/NumberFormat'
+
 
 function Detaildf({ match }) {
 
@@ -46,7 +45,7 @@ function Detaildf({ match }) {
 
                     <Col md={6}>
                     <h5>{detailproduct.item}</h5>
-                    <p>Rp.{detailproduct.price }</p>
+                    <p>Rp.{ detailproduct.price }</p>
                     <p className={style.tp}>Toping</p>
                     <Form>
 
@@ -62,7 +61,7 @@ function Detaildf({ match }) {
                                 )}
                         </Row>  
                                 <p></p>
-                                <h3> Total : Rp.  </h3>
+                                <h6 className={style.tot}> Total : Rp.  </h6>
                                     <Button type="submit" className={style.add}> Add </Button>
                         </Form>
                     </Col>

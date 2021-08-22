@@ -1,0 +1,18 @@
+.profile{
+    margin-top: 60px;
+
+}
+.cardprofile{
+    padding: 15px;
+
+}
+.cart{
+    height: 150px;
+    background-color: rgb(245, 166, 166);
+    padding: 14px;
+}
+.not{
+    color:rgb(255, 255, 255);
+    text-shadow: 2px 2px  rgb(206, 206, 206);
+
+}

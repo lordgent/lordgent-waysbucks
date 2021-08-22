@@ -1,26 +1,44 @@
 import React from 'react'
-import {Navbar,Container} from 'react-bootstrap'
+import {Navbar,Container,NavDropdown} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import { IoIosCart } from "react-icons/io";
 import logo from '../../image/icons.png'
 import style from './Navuser.module.css'
+import cart from './cart.png'
+import {useHistory} from 'react-router-dom'
 
 
 function Navuser() {
+    const log = JSON.parse(localStorage.getItem('userlogin'))
+    let redire = useHistory()
+
+    const logout = () => {
+        localStorage.removeItem('userlogin')
+        localStorage.removeItem('login')
+        redire.push('/')
+    }
+
     return (
         <>
             
             <Navbar expand="lg" variant="" bg="">
                     <Container>
                             <Link to="/client">
-                                <img  src={logo} alt="logowaysbucks" height="40" />
+                                <img id="collasible-nav-dropdown" src={logo} alt="logowaysbucks" height="40" />
                             </Link>
 
                             <div  className="d-flex">
-                                <Link><IoIosCart className={style.logo} /></Link>
-                                <Link to="profile">
-                                    <img  src={logo} alt="profileuser" className={style.profil} height="30" />
+                             <Link> <img src={cart} alt="cartlogo" height="27" className={style.cart} /> </Link>
+
+                            <NavDropdown className={style.drop} id="navbarScrollingDropdown">
+       
+                                <Link to="/client/profile">
+                                      Profile
                                 </Link>
+                                <hr/>
+                                <br/>
+                                    <button onClick={logout}>Logout</button>
+                            </NavDropdown>
+
                             </div>
 
                     </Container>
