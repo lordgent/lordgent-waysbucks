@@ -33,7 +33,7 @@ function Detaildf({ match }) {
     return (
         <>
           
-          <Modal.Dialog style={{transition: '7s'}}>
+          <Modal.Dialog>
 
             <Modal.Body>
             <Container>

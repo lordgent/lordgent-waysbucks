@@ -5,7 +5,6 @@ import stylereg from './register.module.css'
 function Registeruser(props) {
    
     const [name,setname] = useState('')
-    const [role, setrole] = useState('client')
     const [email,setemail] = useState('')
     const [password, setpassword] = useState('');
 
@@ -13,7 +12,7 @@ function Registeruser(props) {
     const handlereg = (e) => {
         e.preventDefault()
         let obj = {
-            name,role, email, password
+            name,role: 'client', email, password
         }
         localStorage.setItem('user', JSON.stringify(obj))
     }

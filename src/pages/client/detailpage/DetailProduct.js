@@ -1,13 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import {Container ,Button, Row, Card, Col, Form} from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
 import Navuser from '../../../components/navbar/Navuser'
 import style from './detail.module.css'
 
 
 function Detaildf({ match }) {
 
-    const rndr = useHistory()
 
     let us = JSON.parse(localStorage.getItem('userlogin'))
 

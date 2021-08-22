@@ -32,8 +32,7 @@ function Loginuser(props) {
                     }
                 ]
                 localStorage.setItem('userlogin', JSON.stringify(ses))
-                const cartuser = []
-                let cart = localStorage.setItem('cart', JSON.stringify(cartuser))
+               
                 
                    
             } else {
