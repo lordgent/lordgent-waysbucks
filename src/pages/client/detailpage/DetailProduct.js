@@ -40,16 +40,18 @@ function Detaildf({ match }) {
             })
 
 
-    },[] )
+    } )
 
 
 
     const addcart = (e) => {
 
         e.preventDefault()
-        us.map((rows)=> {
+        us.foreach((rows,idx) => {
 
-            const cartu = {
+            
+
+        const cartu = {
                 id: rows.id,
                 nameuser: rows.name,
                 nameproduct: detailproduct.item,
@@ -99,7 +101,7 @@ function Detaildf({ match }) {
                             {toping.map((nm,idx) =>
 
                                 <Col className={style.coltop} key={idx} md={3} xs={2} >
-                                    <img src={"/assets/icon/"+nm.ics} height="35" />
+                                    <img src={"/assets/icon/"+nm.ics} height="35" alt="icontop" />
                                     <input onChange={(e) => setcektop(e.target.value)} type="checkbox" value={nm.topingname} className={style.tpi} />
                                     <p className={style.name}>{nm.topingname}</p>
                                 </Col>

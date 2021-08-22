@@ -28,7 +28,7 @@ function Detaildf({ match }) {
 
        
 
-    },[] )
+    } )
 
     return (
         <>

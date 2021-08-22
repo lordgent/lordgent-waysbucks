@@ -15,10 +15,7 @@ function Navuser() {
         localStorage.removeItem('userlogin')
         localStorage.removeItem('login')
         redire.push('/')
-    }
-
-    const quy = JSON.parse(localStorage.getItem('cartuser'));
-  
+    }  
     
     return (
         <>

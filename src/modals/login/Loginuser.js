@@ -15,9 +15,9 @@ function Loginuser(props) {
        
         let cek = User;
 
-        cek.map((rows) => {
-            
-            if(email === rows.email && password === rows.password && rows.role === 'client' ) {
+        cek.foreach(rows => {
+          
+      if(email === rows.email && password === rows.password && rows.role === 'client' ) {
 
                 rt.push('/client')
                 localStorage.setItem('login', 'true')
@@ -31,9 +31,7 @@ function Loginuser(props) {
 
                     }
                 ]
-                localStorage.setItem('userlogin', JSON.stringify(ses))
-               
-                
+               localStorage.setItem('userlogin', JSON.stringify(ses))          
                    
             } else {
                return false
@@ -43,8 +41,6 @@ function Loginuser(props) {
         } )
         
     }
-
-    
     return (
         <>
             <Modal className={stylelogin.modal} show={props.showw}>
