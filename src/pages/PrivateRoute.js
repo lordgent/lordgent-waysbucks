@@ -1,7 +1,8 @@
-import {Redirect,Route} from 'react'
+import React from 'react';
+import {Redirect,Route} from 'react-router-dom'
 
 function PrivateRoute({component: Component, ...rest }) {
-    const isSignin = false;
+    const isSignin = JSON.parse(localStorage.getItem('login'));
     return (
         <>
             

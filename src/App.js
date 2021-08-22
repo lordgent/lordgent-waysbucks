@@ -5,7 +5,9 @@ import Homepage from './pages/home/Homepage';
 import Detaildf from './modals/detaildf/Detaildf';
 import Clientpages from './pages/client/homeclient/Clientpages';
 import DetailProduct from './pages/client/detailpage/DetailProduct'
-import PrivateRoute from './pages/Privateroute';
+import PrivateRoute from './pages/PrivateRoute';
+
+
 function App() {
 
   return (
@@ -18,10 +20,9 @@ function App() {
 
           <Route path="/" exact component={Homepage} />
           <Route path="/detaildf/:id" exact component={Detaildf} />
-          <Route path="/client/detailc/:id" exact component={DetailProduct} />
+          {/* <Route path="/client/detailc/:id" exact component={DetailProduct} /> */}
           {/* <Route path="/client" exact component={Clientpages} /> */}
-
-         <PrivateRoute exact path='/client' component={Clientpages} />
+         <PrivateRoute exact path='/client' component={Clientpages}/>
         </Switch>
          
         </BrowserRouter>
