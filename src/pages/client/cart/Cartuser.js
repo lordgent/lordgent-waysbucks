@@ -5,6 +5,22 @@ import './cart.css'
 
 
 function Cartuser() {
+
+
+    // const [suvtotal, setsubtotal] = useState(0)
+    const transaction = JSON.parse(localStorage.getItem('mycart'))
+   
+
+   const subtot = transaction.reduce((result,el) => {
+
+        return result + el.price
+
+
+    },0)
+ 
+
+
+
     return (
         <>
             <Navuser/>
@@ -17,18 +33,44 @@ function Cartuser() {
                             <h4 className="ti">My Cart</h4>
                             <p>Review Your Order</p>
                             <hr/>
+                            {transaction ? 
 
-                            <h1>CART</h1>
+                                transaction.map((rows,idx) => 
+                                
+                                    <div key={idx}>
+                                        <img src={"/assets/images/"+rows.img} alt={rows.img} height="90" />
+                                            <p>{rows.price}</p>
+                                    </div>
+                                
+                                )
+                                
+                                
+                            :
+                            <div>
+                                <h5>Transaction Not found</h5>
+                            </div>
+                                }
+                                
+                     
+
+
+
                                 <hr/>
                                 <Row>
+                                 
+    
                                     <Col md={4} >
-                                    <p>Sub Total</p>
-                                    <p>QTY</p>
+                                    <p>Sub Total : {subtot} </p>
+                                    <p>QTY :  </p>
                                     <hr/>
                                     </Col>
+                                    
+                                    
+                                 
+                                 
 
                                     <Col md={2}>
-                                        <h1>Barcode</h1>
+                                        <span>Attache of transactions</span>
                                     </Col>
 
 

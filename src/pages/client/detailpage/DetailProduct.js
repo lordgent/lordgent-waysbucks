@@ -1,130 +1,137 @@
 import React,{useState,useEffect} from 'react'
-import {Container ,Button, Row, Card, Col, Form} from 'react-bootstrap'
+import {Container, Card, Row,Col, Form} from 'react-bootstrap'
 import Navuser from '../../../components/navbar/Navuser'
 import style from './detail.module.css'
+import Product from '../../../datajson/Product'
 
 
 function Detaildf({ match }) {
 
+    let user = JSON.parse(localStorage.getItem('userlogin'))
 
-    let us = JSON.parse(localStorage.getItem('userlogin'))
+    function fixcart() {
 
+        let crt  = localStorage.getItem('mycart');
 
-    const id = match.params.id    
- 
-    const [detailproduct,setDetailproduct] = useState([]);
-    const [toping, setToping] = useState([])
-    
+        if(crt) {
+            return JSON.parse(crt)
+        } else {
 
-    // ============ cart state ============
-
-        const [cektop,setcektop] = useState('')
-        
-        
-        //============ ========================
-        
-        const [fixcart, setfixcart] = useState([])
-
-    useEffect(() => {
-
-        const detail = fetch(`https://my-json-server.typicode.com/lordgent/fakedata/product/`+id);
-            detail.then((response) => {
-                return response.json()
-            })
-            .then(result => {
-                setDetailproduct(result)  
-                setToping(result.toping)    
-            } )
-            .catch(err => {
-                console.error(err + ' errrorrrrrr');
-            })
-
-
-    } )
-
-
-
-    const addcart = (e) => {
-
-        e.preventDefault()
-        us.foreach((rows,idx) => {
-
-            
-
-        const cartu = {
-                id: rows.id,
-                nameuser: rows.name,
-                nameproduct: detailproduct.item,
-                priceprd: detailproduct.price,
-                qty: 1,
-                top: cektop,
-                date: Date()
-            }
-           setfixcart([...fixcart, cartu])
-           
-           
-        })
-
-        localStorage.setItem('cartuser', JSON.stringify(fixcart))
-        
-
+           return []
+        }
 
     }
-   
+
+        // ================
+        const [toping,settoping] = useState([])
+        const id = match.params.id  
+
+        useEffect( () => {
+
+            Product.filter(top => top.id === id ).forEach(res => {
+        
+                settoping(res.toping)
+               
+            })    
+
+        } )
+
+        const [cart, setcart] = useState(fixcart())
+       
+
+        // ================
+       
+        useEffect(() => {
+             
+        localStorage.setItem('mycart', JSON.stringify(cart))
+
+    },[cart])
+
+    const handlecart = (e)  => {
+
+        e.preventDefault()
+        Product.filter(hndl => hndl.id === id ).forEach(result => {
+                user.forEach(rows => {
+
+                    let obj = {
+                        name: rows.name,
+                        email: rows.email,
+                        nameitem: result.item,
+                        img: result.imgs,
+                        price: result.price,
+                        qty: 1,
+                        date: Date()
+        
+                    }
 
 
+                    setcart([...cart, obj])
+                })
+                
+                
+         
 
-   
+        } )
+    
+} 
+
     return (
         <>
           <Navuser/>
           
-           <Container>
-                <Card className={style.carddet}>
-                    <Container>
-        
-                <Row>
+           <Container className={style.cartcontainer}>
 
-                    <Col md={6}>
-                     <img src={"/assets/images/"+detailproduct.imgs} alt={detailproduct.imgs} height="400" />
-                           
-                    </Col>
 
-                    <Col md={6}>
-                    <h5>{detailproduct.item}</h5>
-                    <p>Rp.{ detailproduct.price }</p>
-                    <p className={style.tp}>Toping</p>
-                    <Form onSubmit={addcart} >
-               
+                {Product.filter(rows => rows.id === id ).map((result) => 
+
                         <Row>
-                                  
-                            {toping.map((nm,idx) =>
 
-                                <Col className={style.coltop} key={idx} md={3} xs={2} >
-                                    <img src={"/assets/icon/"+nm.ics} height="35" alt="icontop" />
-                                    <input onChange={(e) => setcektop(e.target.value)} type="checkbox" value={nm.topingname} className={style.tpi} />
-                                    <p className={style.name}>{nm.topingname}</p>
-                                </Col>
+                            <Col md={6}>
+                            
+                                <img src={"/assets/images/"+result.imgs} alt={result.imgs} className={style.cartimg} height="350" />
+                            </Col>
 
-                                )}
-                        </Row>  
-                                <p></p>
-                                <h6 className={style.tot}> Total : Rp. {detailproduct.price} </h6>
-                                {/* <input type="hidden" value={detailproduct.item} /><br/>
-                                <input type="hidden" value={detailproduct.price} /> */}
-                                    <Button type="submit" className={style.add}> Add </Button>
-                        </Form>
-                    </Col>
+                        <Col md={6}>
 
-                </Row>
-                </Container>
 
-                </Card>
+                                <Card className={style.card}>
 
-           </Container>
-            
-            
+                                   <Form onSubmit={handlecart}>                                       
+                               
+                                    <h1>{result.item}</h1>
+                                    <p>RP. {result.price}</p>
+                                    <p>Toping</p>
+                                    <Row>
+                                    {toping.map((top,idt) => 
+
+                                        
+                                        <Col key={idt} md={3}>
+                                                <center>
+
+                                            <img src={"/assets/icon/"+top.ics} alt="iconstop" height="39" />                                                
+                                                </center>
+                                            <input type="checkbox" className={style.cektop} value={top.topingname} />
+                                            <p className={style.topname}>{top.topingname}</p>
+                                        </Col>
+
+
+                                    )}
+                                    </Row>
+                                    <h4>Total : </h4>
+
+                                    <button className={style.btncart}>Add Cart</button>
+                                    </Form> 
+                                </Card>
+                        
+                        </Col>
+
+
+                        </Row>
+                    
                 
+                ) }
+      
+           </Container>
         
         </>
     )

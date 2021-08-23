@@ -16,6 +16,7 @@ function Registeruser(props) {
             name,role: 'client', email, password
         }
         User.push(obj)
+        console.log(User);
     }
 
     return (

@@ -7,12 +7,38 @@
 
 }
 .cart{
-    height: 150px;
+  
     background-color: rgb(245, 166, 166);
     padding: 14px;
+    color: rgb(255, 0, 0);
 }
 .not{
     color:rgb(255, 255, 255);
     text-shadow: 2px 2px  rgb(206, 206, 206);
 
+}
+.transaction{
+    
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.nottr{
+    color: white;
+    text-shadow: 2px rgb(105, 105, 105);
+}
+
+.dt{
+    font-size: 10px;
+}
+.prc{
+    font-size: 10px;
+}
+
+.imt{
+    border-radius: 5px;
+}
+
+.pr{
+    color: red;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import Navuser from '../../../components/navbar/Navuser'
 import Jumtainer from '../../../components/content/Jumtainer'
 import {Container,Row} from 'react-bootstrap'
@@ -6,8 +6,7 @@ import Datauser from '../../../components/card/Datauser'
 import './style.css'
 
 function Clientpages() {
-
-
+    
     return (
         <>
             <Navuser/>

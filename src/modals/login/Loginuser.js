@@ -8,18 +8,17 @@ function Loginuser(props) {
     
     const [password,setpassword] = useState('');
     const [email, setemail] =  useState('');
+ 
+
     const rt = useHistory()
 
     const handleLogin = (e) => {
         e.preventDefault()
-       
-        let cek = User;
 
-        cek.forEach(rows => {
-          
-      if(email === rows.email && password === rows.password && rows.role === 'client' ) {
+        User.forEach(rows => {
 
-                rt.push('/client')
+            if(email === rows.email && password === rows.password) {
+
                 localStorage.setItem('login', 'true')
                 let ses = [
                     {   
@@ -28,14 +27,13 @@ function Loginuser(props) {
                         name: rows.name,
                         email: rows.email,
                         password: rows.password,
-
+                        
                     }
                 ]
-               localStorage.setItem('userlogin', JSON.stringify(ses))          
+                localStorage.setItem('userlogin', JSON.stringify(ses))          
+                rt.push('/client')
+     
                    
-            } else {
-               return false
-             
             }
 
         } )

@@ -16,7 +16,9 @@ function Navuser() {
         localStorage.removeItem('login')
         redire.push('/')
     }  
-    
+
+    let mycrt = JSON.parse(localStorage.getItem('mycart'))
+    const valuecrt = mycrt.length
     return (
         <>
             
@@ -28,10 +30,24 @@ function Navuser() {
 
                             <div  className="d-flex">
                              <Link to="/client/mycart"> 
-                  
-                                     <span className={style.qty}>1</span>
+                                    
+                                    {mycrt ?   
                                   
-                              <img src={cart} alt="cartlogo" height="27" className={style.cart} /> </Link>
+                                    
+                                    <span className={style.qty}>{valuecrt}</span>
+                                    
+                                  
+                                    
+                                    
+                                    : 
+                                        <span></span>
+                                    }
+               
+                              <img src={cart} alt="cartlogo" height="27" className={style.cart} />
+                              
+                              
+                              
+                               </Link>
 
                             <NavDropdown className={style.drop} id="navbarScrollingDropdown">
        

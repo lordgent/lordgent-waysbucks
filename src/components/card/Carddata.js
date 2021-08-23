@@ -1,47 +1,17 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
 // import {Link} from 'react-router-dom'
-import { ImMug } from "react-icons/im";
+// import { ImMug } from "react-icons/im";
 import NumberFormat from '../NumberFormat';
+import Product from '../../datajson/Product'
 
 function Carddata() {
-
-    const [product,setProduct] = useState([])
-    const [load,setLoad] = useState(true)
-useEffect( () => {
-
-    const data = fetch('https://my-json-server.typicode.com/lordgent/fakedata/product');
-
-    data.then(response => {
-        return response.json()
-    } )
-        .then(result => {
-            setProduct(result)  
-            setLoad(false)
-           
-        } )
-    .catch(err => {
-        console.log(err);
-    })
-},[] ) 
-
-    if(load) {
-        return (
-            <div className={style.load}>
-                <p>Please Wait.. <ImMug className={style.iconload}/></p>
-                
-                <br/>
-                <br/>
-                
-            </div>
-        )
-    }
 
     return (
         <>
         
-            {product.map( (rows,idx) => 
+            {Product.map( (rows,idx) => 
         <Col md={3} key={idx}>
                 
 
@@ -58,7 +28,7 @@ useEffect( () => {
                                     
                                     
                                     </Col>
-                                    ) }
+                     ) }
            
         </>
     )
