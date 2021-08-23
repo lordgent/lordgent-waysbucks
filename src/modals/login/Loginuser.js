@@ -15,7 +15,7 @@ function Loginuser(props) {
        
         let cek = User;
 
-        cek.foreach(rows => {
+        cek.forEach(rows => {
           
       if(email === rows.email && password === rows.password && rows.role === 'client' ) {
 

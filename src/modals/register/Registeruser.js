@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {Modal,Button,Form,Container} from 'react-bootstrap'
 import stylereg from './register.module.css'
+import User from '../../datajson/User'
 
 function Registeruser(props) {
    
@@ -14,7 +15,7 @@ function Registeruser(props) {
         let obj = {
             name,role: 'client', email, password
         }
-        localStorage.setItem('user', JSON.stringify(obj))
+        User.push(obj)
     }
 
     return (
