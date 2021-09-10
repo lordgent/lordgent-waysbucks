@@ -1,77 +1,115 @@
-import React,{useState} from 'react'
-import {Modal,Button,Form,Container} from 'react-bootstrap'
-import { useHistory } from 'react-router-dom';
+import React,{useState,useContext} from 'react'
+import {Modal,Button,Form,Container, Alert} from 'react-bootstrap'
+import { Link,useHistory } from 'react-router-dom';
 import stylelogin from './login.module.css'
-import User from '../../datajson/User';
+import {useMutation} from 'react-query'
+import {API} from '../../config/api'
+import {UserContext} from '../../context/contextuser'
 
 function Loginuser(props) {
-    
-    const [password,setpassword] = useState('');
-    const [email, setemail] =  useState('');
- 
+    let api = API()
+    let render = useHistory()
 
-    const rt = useHistory()
+    const [message,setmessage] = useState(false)
+    const [state,dispatch] = useContext(UserContext)
+    const [login,setlogin] = useState({
+        email: '',
+        password: ''
+    })
+    const {email,password} = login
 
-    const handleLogin = (e) => {
-        e.preventDefault()
+    const handleChange = (e) => {
 
-        User.forEach(rows => {
+        setlogin({
+            ...login,
+            [e.target.name]: e.target.value
+        })}
 
-            if(email === rows.email && password === rows.password) {
-
-                localStorage.setItem('login', 'true')
-                let ses = [
-                    {   
-                        id: rows.id,
-                        img: 'https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg',
-                        name: rows.name,
-                        email: rows.email,
-                        password: rows.password,
-                        
-                    }
-                ]
-                localStorage.setItem('userlogin', JSON.stringify(ses))          
-                rt.push('/client')
-     
-                   
+    const handleLogin = useMutation( async (e) => {
+        try {
+            e.preventDefault()
+            const form = JSON.stringify(login)
+            const config = {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: form
             }
+            const response = await api.post('/login', config)
+            console.log(response);
+            if(response.status === 'success') {
+                dispatch({
+                    type: 'LOGIN_SUCCESS',
+                    payload: response.data,
+                })
 
-        } )
-        
-    }
+                if(response.data.status === 'admin') {
+                    localStorage.setItem('login', 'true')
+                    render.push('/admin')
+            
+                } else {
+                    localStorage.setItem('login', 'true')
+                    render.push('/client')
+
+                }
+                const alert = (
+                    <Alert variant="success" className="py-1">
+                      Login success
+                    </Alert>
+                  );
+                  setmessage(alert);
+                  
+
+            } else {
+                const failedlogin = (
+                    <Alert variant="danger">
+                        Username/password Salah!
+                    </Alert>
+                )
+                setmessage(failedlogin)
+            }
+            
+        } catch (error) {
+            const alert = (
+                <Alert variant="danger" className="py-1">
+                  Login failed
+                </Alert>
+              );
+              setmessage(alert);
+              console.log(error);
+            
+        }
+    } )
+
     return (
         <>
             <Modal className={stylelogin.modal} show={props.showw}>
                 <Container> 
                     <h1 className={stylelogin.til}>Login</h1>
-           <Form className={stylelogin.form} onSubmit={handleLogin}>
+                    {message && message}
+           <Form className={stylelogin.form} onSubmit={(e) => handleLogin.mutate(e)}>
 
                  <Form.Group className="mb-3" controlId="formBasicEmail">
 
                     <Form.Control type="text" className={stylelogin.input} 
-                    onChange={(e) => setemail(e.target.value)} value={email} placeholder="Input your email" />
+                    onChange={handleChange} name="email" value={email} placeholder="Input your email" />
 
                  </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
            
-                <Form.Control type="text" 
-                onChange={(e) => setpassword(e.target.value)}
+                <Form.Control type="password" 
+                onChange={handleChange}
                 value={password}
-                className={stylelogin.input} placeholder="Input your Strong Password" />
+                className={stylelogin.input} name="password" placeholder="Input your Strong Password" />
 
             </Form.Group>
           
-           <Button variant="primary" type="submit" className={stylelogin.btnlogin}>Login</Button>
-
+                <Button type="submit" className={stylelogin.btnlog}>Login</Button>
+                <p className={stylelogin.spn}>Don't have an account klik <Link>Here</Link> </p>
          </Form>
 
-            <Modal.Dialog>
-                
-                <Button onClick={props.onClick}>
-                Close
-                </Button>
-            </Modal.Dialog>
             </Container>
             </Modal>
         </>

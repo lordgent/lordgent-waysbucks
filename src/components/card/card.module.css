@@ -5,6 +5,11 @@
     height: 30px;
     
 }
+
+.imgs{
+    height: 17rem;
+ 
+}
 .load p{
     color: white;
     text-align: center;
@@ -27,23 +32,28 @@
     background-color: rgb(2, 95, 2);
 }
 .crd{
-    width: 18rem;
-    margin-bottom: 10px;
+    min-width: 16rem;
+    margin-bottom: 16px;
     padding: 5px;
     background-color: rgb(255, 209, 209);
-  
-}
-.titl{
     color: red;
+    font-size: 12px;
+    min-height: 15rem;
+}
+
+.tit{
+    color: red;
+    font-weight: 600;
+    font-size: 14px;
+}
+.title{
+    font-size: 15px;
     font-weight: 600;
 }
 .price{
-    color: rgb(59, 59, 59);
+    color: rgb(204, 19, 19);
     font-family: arial;
     
-}
-.crd{
-    width: 17rem;
 }
 
 .order{
@@ -57,6 +67,15 @@
 .order:hover{
     color: white;
     text-decoration: none;
+    
+}
+.btnorder{
+    color: rgb(255, 255, 255)!important;
+    border: 1px solid red;
+    border-radius: 4px;
+    padding: 2px 7px 2px 7px;
+    margin: auto 0 auto 75px;
+    background-color: rgb(250, 28, 28);
 }
 @keyframes loading{
     0%{
@@ -69,7 +88,11 @@
 
 
      @media only screen and (max-width: 600px) {
-
+        .crd{
+         height: 18rem;
+            font-size: 12px;
+            
+        }
         .cardcol{
             width: 40rem;
         }
@@ -79,11 +102,12 @@
             width: 100%;
         }
 
-        .titl{
-            font-size: 10px;
+        .tit{
+            font-size: 15px;
           }
           .price{
               font-size: 10px;
+              color: red;
           }
           .crd{
               width: 100%;

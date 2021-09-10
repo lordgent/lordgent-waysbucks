@@ -1,0 +1,42 @@
+.waiting{
+    color: #FF9900;
+        font-size: 15px;
+}
+.cncl{
+    background-color: red;
+    color: white;
+    padding: 2px  8px 2px 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-right: 10px;
+
+}
+.appr{
+    background-color: rgb(0, 207, 0);
+    color: white;
+    padding: 2px  8px 2px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    border: none;
+}
+.tbl{
+    text-align: center;
+    width: 100%;
+}
+
+.incm{
+    color: blue;
+    font-size: 15px;
+    font-weight: bold;
+}
+.inc{
+    color: red;
+    margin-left: 50px;
+    font-weight: bold;
+}
+.togle{
+    color: red;
+    font-size: 20px;
+
+}

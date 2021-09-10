@@ -1,44 +1,69 @@
-.profile{
-    margin-top: 60px;
-
+.profile {
+  margin-top: 30px;
 }
-.cardprofile{
-    padding: 15px;
-
+.cardprofile {
+  padding: 15px;
+  box-shadow: 2px 2px 2px 2px rgb(219, 219, 219);
 }
-.cart{
-  
-    background-color: rgb(245, 166, 166);
-    padding: 14px;
-    color: rgb(255, 0, 0);
+.cart {
+  background-color: rgb(255, 226, 226);
+  padding: 14px;
+  color: rgb(207, 0, 0);
+  width: 100%;
 }
-.not{
-    color:rgb(255, 255, 255);
-    text-shadow: 2px 2px  rgb(206, 206, 206);
-
+.not {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px rgb(206, 206, 206);
 }
-.transaction{
-    
-    padding: 5px;
-    margin-top: 10px;
+.transaction {
+  padding: 5px;
+  margin-top: 10px;
 }
 
-.nottr{
-    color: white;
-    text-shadow: 2px rgb(105, 105, 105);
+.nottr {
+  color: rgb(255, 255, 255);
+  text-shadow: 5px solid rgb(255, 45, 45);
+}
+.notprofil {
+  font-size: 150px;
 }
 
-.dt{
-    font-size: 10px;
+.dt {
+  font-size: 10px;
 }
-.prc{
-    font-size: 10px;
+.edtpr {
+  color: rgb(255, 255, 255);
+  border: 1px solid red;
+  background-color: red;
+  padding: 2px 7px 2px 7px;
+  font-size: 14px;
+}
+.edtpr:hover {
+  text-decoration: none;
+  color: white;
+}
+.prc {
+  font-size: 10px;
 }
 
-.imt{
-    border-radius: 5px;
+.imt {
+  border-radius: 5px;
 }
 
-.pr{
-    color: red;
+.pr {
+  color: red;
+  font-weight: bold;
+}
+.crttop {
+  font-size: 9px;
+}
+.trs {
+  color: rgb(156, 0, 0);
+  font-weight: bold;
+}
+.sts {
+  font-size: 10px;
+}
+.imgbg {
+  margin-bottom: 10px;
 }

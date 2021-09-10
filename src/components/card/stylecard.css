@@ -1,0 +1,19 @@
+.title{
+    color: red;
+    font-size: 15px;
+}
+.btnorder{
+    color: rgb(255, 255, 255);
+    border: 1px solid red;
+    padding: 2px 7px 2px 7px;
+    background-color: red;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.btnorder:hover{
+    text-decoration: none;
+    background-color: white;
+    color: red;
+    border: 1px solid white;
+    font-weight: 600;
+}

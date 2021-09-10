@@ -20,5 +20,12 @@ const User = [
         password: 'admin',
         role: 'adm',
     },
+    {
+        id: 4,
+        name: 'userbaru',
+        email: 'user@gmail.com',
+        password: '54321',
+        role: 'client',
+    },
 ]
 export default User;

@@ -38,8 +38,8 @@ function Navbarcomp() {
                   
                    <Nav className={style.nv}>
 
-                    <Link className={style.reg} onClick={clickreg}>Register</Link>
                     <Link className={style.login} onClick={clickModal} >Login</Link>
+                    <Link className={style.reg} onClick={clickreg}>Register</Link>
                    </Nav>
                     
 

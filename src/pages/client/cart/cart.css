@@ -1,20 +1,61 @@
-.paycart{
-    margin-top: 40px;
+.paycart {
+  margin-top: 40px;
+  overflow: auto;
 }
 
-.ti{
-    color: red;
-    font-weight: bold;
+.ti {
+  color: rgb(209, 0, 0);
+  font-weight: bold;
+  margin-left: 10px;
 }
-.forms{
-    padding: 0 40px 10px 40px;
+.forms {
+  padding: 0 40px 10px 40px;
+  margin-top: 75px;
 }
 
-.btnpay{
-    background-color: red;
-    width: 100%;
-    border: 1px solid red;
+.btnpay {
+  background-color: red;
+  width: 100%;
+  border: 1px solid red;
 }
-.inptcntrl{
-    border: 2px solid rgb(255, 42, 42);
+.inptcntrl {
+  border: 2px solid rgb(255, 42, 42);
+}
+.rv {
+  padding: 10px;
+  color: rgb(196, 5, 5);
+}
+.subtot {
+  font-weight: bold;
+  color: red;
+}
+.oftr {
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.toping {
+  font-size: 15px;
+}
+.cartuser {
+  margin-bottom: 10px;
+  padding: 15px;
+  color: rgb(199, 0, 0);
+}
+.dlt {
+  color: rgb(199, 0, 0);
+  border: none;
+  font-size: 26px;
+  background-color: white;
+}
+.crtimg {
+  border-radius: 10px;
+}
+.titprd {
+  font-weight: bold;
+}
+
+.prc {
+  font-size: 9px;
+  font-weight: bold;
 }

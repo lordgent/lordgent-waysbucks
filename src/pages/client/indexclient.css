@@ -1,0 +1,10 @@
+.profileprev{
+    border: 1px solid rgb(224, 224, 224);
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px rgb(224, 224, 224 );
+    margin-left: 10%;
+}
+.colname{
+    margin-left: 8%;
+    font-size: 17px;
+}

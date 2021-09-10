@@ -1,0 +1,18 @@
+.tog{
+    background-color: rgb(255, 255, 255)!important;
+    border: none;
+}
+.drop{
+    background-color: rgb(255, 255, 255) !important;
+    color: red;
+}
+.icn{
+    color: red;
+    font-size: 30px;
+}
+.btntog{
+    color: red;
+}
+.dpm{
+    padding: 20px;
+}

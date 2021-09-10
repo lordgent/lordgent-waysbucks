@@ -1,89 +1,146 @@
-import React from 'react'
-import Navuser from '../../../components/navbar/Navuser'
-import {Container, Col, Row, Card} from 'react-bootstrap'
-import './profile.css'
+import React, { useContext } from "react";
+import Navuser from "../../../components/navbar/Navuser";
+import { Container, Col, Row, Card } from "react-bootstrap";
+import "./profile.css";
+import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { API } from "../../../config/api";
+import barcode from "./barcode.png";
+import lg from "./wb.png";
+
+import { UserContext } from "../../../context/contextuser";
 
 function Profileuser() {
+  const [state, dispatch] = useContext(UserContext);
 
-    const user = JSON.parse(localStorage.getItem('userlogin'))
-    const cart = JSON.parse(localStorage.getItem('mycart'))
+  const id = parseInt(state?.user.id);
+  console.log(id);
+  document.title = "Welcome waysbucks";
+  let api = API();
+  let { data: user } = useQuery("UserCache", async () => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
+    const response = await api.get(`/user/${id}`, config);
 
-    return (
-        <>
-            <Navuser/>
+    return response.data;
+  });
 
-        <Container>
+  let { data: transaction } = useQuery("TransactionCache", async () => {
+    const config = {
+      method: "GET",
+      headers: {
+        Authorization: "Basic " + localStorage.token,
+      },
+    };
+    const response = await api.get(`/transaction/${id}`, config);
+    return response.datatransaction;
+  });
+  console.log(transaction);
+  const rp = require("rupiah-format");
+  return (
+    <>
+      <Navuser />
 
-            <Row className="profile">
+      <Container>
+        <Row className="profile">
+          <Col md={6}>
+            <h5 className="pr">My profile</h5>
 
-                    <Col md={6}>
-                        <h5 className="pr">My profile</h5>
+            <Card className="cardprofile">
+              <Row>
+                <Col md={4}>
+                  {!user?.image ? (
+                    <FaUserCircle className="notprofil" />
+                  ) : (
+                    <img
+                      src={"http://localhost:4005/uploads/" + user?.image}
+                      alt="imageproduct"
+                      height="150"
+                    />
+                  )}
+                </Col>
 
-                        <Card className='cardprofile'>
-                          
-                        {user.map((rows) => 
-                            <Row>
-                                <Col md={4}>
-                                    <img src={rows.img} alt="profilepicture" height="120" />
-                                </Col>
+                <Col>
+                  <p>
+                    Name : <br /> {user?.fullname}
+                  </p>
+                  <p>
+                    Email: <br /> {user?.email}
+                  </p>
+                  <br />
+                  <Link
+                    to={"/client/profile/" + state.user.id}
+                    className="edtpr"
+                  >
+                    Edit Profile
+                  </Link>
+                </Col>
+              </Row>
+            </Card>
+          </Col>
 
-                                <Col>
-                               
-                                    <p>Name : {rows.name}</p>
-                                    <p>Email: {rows.email}</p>
-                                </Col>
-                            </Row>
-                        )}
-
-                        </Card>
-
+          <Col md={6}>
+            <h4 className="trs">My Transaction</h4>
+            <div className="cart">
+              {!transaction ? (
+                <div>Not Transaction</div>
+              ) : (
+                transaction?.map((item) => (
+                  <Row>
+                    <Col md={3}>
+                      <img
+                        src={
+                          "http://localhost:4005/uploads/" +
+                          item?.Carts.Products.image
+                        }
+                        alt="imageproduct"
+                        height="140"
+                      />
                     </Col>
-
                     <Col md={6}>
-                        <h4>My Transaction</h4>
-                        <Card className="cart">
-
-                            {cart ? 
-
-                                cart.map((row,idc) => 
-                                                            
-                                    <div key={idc} className='transaction'>
-                                        
-                                        <Row>
-
-                                            <Col md={2}>
-                                            <img src={"/assets/images/"+row.img} className="imt" height="100" alt={row.img} />
-                                            </Col>
-                                    <Col md={6}>
-
-                                    <h5>{row.nameitem}</h5>
-                                        <p className="dt">{row.date}</p>
-                                        <p className="prc">Rp.{row.price}</p>
-
-                                    </Col>
-
-
-                                        </Row>
-
-                                    </div>
-
-                                )
-                            
-                            
-                            : <h3 className="nottr">Not Transaction</h3>  }
-                          
-                        </Card>
-                    
+                      <p>
+                        {item?.Carts?.Products.tittle}
+                        <br />
+                        {item?.Carts?.Products.createdAt}
+                      </p>
+                      {item?.Carts?.Topings.map((top, idp) => (
+                        <span className="crttop" key={idp}>
+                          Toping:
+                          {top?.tittle}
+                        </span>
+                      ))}
+                      <p> Price: {rp.convert(item?.Carts?.Products.price)}</p>
                     </Col>
-            </Row>
-                      
-
-
-        </Container>
-
-
-        </>
-    )
+                    <Col md={3}>
+                      <img
+                        src={lg}
+                        alt="logoways"
+                        className="imgbg"
+                        height="40"
+                      />
+                      <br />
+                      <img
+                        src={barcode}
+                        alt="barcodeways"
+                        className="imgbg"
+                        height="50"
+                      />
+                      <p className="sts"> {item?.status}</p>
+                    </Col>
+                  </Row>
+                ))
+              )}
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
 }
 
-export default Profileuser
+export default Profileuser;

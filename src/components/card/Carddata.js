@@ -1,34 +1,46 @@
 import React from 'react'
 import {Card, Col} from 'react-bootstrap'
 import style from './card.module.css'
-// import {Link} from 'react-router-dom'
-// import { ImMug } from "react-icons/im";
-import NumberFormat from '../NumberFormat';
-import Product from '../../datajson/Product'
+import {API} from '../../config/api'
+import {useQuery} from 'react-query'
 
 function Carddata() {
+    const rp = require('rupiah-format')
+    let api = API()
+   
+    document.title = "Waysbucks Shop" 
+    let {data: products } = useQuery("ProductsCache", async () => { 
+        const config = {
+            method: 'GET'
+        }
+        const response = await api.get('/products', config)
+        return response.data
+    })
+
+console.log(products);
 
     return (
         <>
-        
-            {Product.map( (rows,idx) => 
-        <Col md={3} key={idx}>
+        {
+            products?.map( (rows,idx) => 
+            <Col md={3} xs={3} key={idx}>
+                    
+    
+                        <Card className={style.crd}>
+                        <Card.Img  src={"http://localhost:4005/uploads/"+rows.image} className={style.imgs} alt={rows.image} />
+                        <Card.Body>
+                            <Card.Title className={style.tit}>{rows.tittle}</Card.Title>
+                            <Card.Text className={style.price}>
+                               { rp.convert(rows.price)  }
+                            </Card.Text>
                 
+                        </Card.Body>
+                        </Card>         
+                                        </Col>
+                         ) 
 
-                    <Card   className={style.crd}>
-                    <Card.Img variant="top" src={"assets/images/"+rows.imgs} />
-                    <Card.Body>
-                        <Card.Title>{rows.item}</Card.Title>
-                        <Card.Text>
-                          Rp. { NumberFormat(rows.price)  }
-                        </Card.Text>
-            
-                    </Card.Body>
-                    </Card>
-                                    
-                                    
-                                    </Col>
-                     ) }
+        }
+           
            
         </>
     )

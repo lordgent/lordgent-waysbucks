@@ -1,8 +1,9 @@
 .cart{
 
-    font-size: 30px;
+   margin-right: 5px;
     color: red;
-    margin-right: 20px;
+    height: 30px;
+    margin-top: 5px;
 }
 .profil{
     border: 1px solid red;
@@ -14,9 +15,83 @@
 }
 
 .qty{
-    font-size: 8px;
+    font-size: 10px;
     background-color: red;
     padding: 5px;
     color: white;
+    border-radius: 35%;
+}
+.log{
+    border: none;
+
+    color: rgb(49, 49, 49);
+    font-size: 17px;
+
+}
+.prof{
+    color: rgb(61, 61, 61);
+    font-size: 17px;
+    
+}
+.prof:hover{
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+}
+.imgs{
     border-radius: 50%;
+    border: 2px solid rgb(226, 16, 16);
+    height: 35px;   
+    width: 35px;
+
+}
+
+.lg{
+    color: white;
+    background-color: rgb(236, 22, 22);
+    font-size: 10px;
+    padding: 4px 6px 4px 6px;
+    border-radius: 25px;
+    margin-left: -16px;
+}
+
+.user{
+    border: none;
+    background-color: rgb(255, 255, 255);
+ 
+   }
+.user:hover{
+    background-color: white;
+}
+.dropdown{
+    background-color: white;
+    border: none;
+}
+.dropdown:hover{
+    background-color: white!important;
+}
+/* .user:active{
+    background-color: white !important;
+    opacity: 0;
+} */
+.dropdown:active{
+    background-color: white;
+    opacity: 0;
+}
+.user:focus{
+    background-color: white!important;
+}
+.dv{
+    display: flex;
+   
+padding: 5px;
+}
+
+.icons{
+    color: rgb(255, 2, 2);
+    font-size: 25px;
+}
+
+.tog{
+    font-size: 30px;
+    color: red;
 }
